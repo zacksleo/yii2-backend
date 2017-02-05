@@ -139,4 +139,8 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionEditor()
+    {
+        return $this->render($this->_viewPath . 'editor');
+    }
 }
