@@ -1,11 +1,4 @@
 <?php
-/**
- * @link http://www.lianluo.com/
- * @copyright Copyright (c) 2016 Lianluo
- * @author lijunwei@lianluo.com
- * @date 2016-09-16
- * @version 1.0
- */
 return [
     'Already have a account' => '已有账号',
     'Back' => '返回',

@@ -1,11 +1,5 @@
 <?php
-/**
- * @link http://www.lianluo.com/
- * @copyright Copyright (c) 2016 Lianluo
- * @author lijunwei@lianluo.com
- * @date 2016-12-19
- * @version 1.0
- */
+
 return [
     //change-password
     'password' => '密码',
