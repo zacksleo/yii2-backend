@@ -1,0 +1,3 @@
+.user-index>h1,.assignment-index>h1,.menu-index>h1,.role-index>h1,.auth-item-create>h1 {
+    display: none;
+}

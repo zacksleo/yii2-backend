@@ -1,0 +1,27 @@
+{
+  "name": "zacksleo/yii2-backend",
+  "description": "yii2 backend module",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zacksleo",
+      "email": "zacksleo@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-swiftmailer": "~2.0.0",
+    "yiisoft/yii2-bootstrap": "*",
+    "mdmsoft/yii2-admin": "v2.7",
+    "zacksleo/metronic": "~4.7.1",
+    "zacksleo/yii2-metronic": "~2.0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "zacksleo\\yii2\\backend\\": ""
+    }
+  }
+}
