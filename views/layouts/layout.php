@@ -117,24 +117,28 @@ $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->i
                         <li class="heading">
                             <h3 class="uppercase"><?= $menuCatalog['label']; ?></h3>
                         </li>
-                        <?php foreach ($menuCatalog['items'] as $menuGroup): ?>
-                            <li class="nav-item open">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-diamond"></i>
-                                    <span class="title"><?= $menuGroup['label']; ?></span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu" style="display:block;">
-                                    <?php foreach ($menuGroup['items'] as $item): ?>
-                                        <li class="nav-item">
-                                            <a href="<?= Url::to([$item['url'][0]]); ?>" class="nav-link ">
-                                                <span class="title"><?= $item['label'] ?></span>
-                                            </a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </li>
-                        <?php endforeach; ?>
+                        <?php if (isset($menuCatalog['items'])): ?>
+                            <?php foreach ($menuCatalog['items'] as $menuGroup): ?>
+                                <li class="nav-item open">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-diamond"></i>
+                                        <span class="title"><?= $menuGroup['label']; ?></span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="sub-menu" style="display:block;">
+                                        <?php if (isset($menuGroup['items'])): ?>
+                                            <?php foreach ($menuGroup['items'] as $item): ?>
+                                                <li class="nav-item">
+                                                    <a href="<?= Url::to([$item['url'][0]]); ?>" class="nav-link ">
+                                                        <span class="title"><?= $item['label'] ?></span>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </ul>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
