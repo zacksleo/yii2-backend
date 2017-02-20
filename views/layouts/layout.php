@@ -154,7 +154,7 @@ $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->i
                         ],
                         'homeLink' => [
                             'label' => '仪表盘',
-                            'url' => Url::to(['default/index'])
+                            'url' => Yii::$app->homeUrl
                         ],
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]) ?>
