@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/zacksleo/yii2-backend/assets/css';
+    public $sourcePath = '@vendor/zacksleo/yii2-backend/src/assets/css';
     public $css = [
         'site.css',
     ];

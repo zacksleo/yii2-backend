@@ -38,7 +38,7 @@ class Module extends BaseModule
         Yii::$app->i18n->translations['zacksleo/yii2/backend/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => $this->sourceLanguage,
-            'basePath' => '@zacksleo/yii2/backend/messages',
+            'basePath' => '@zacksleo/yii2/backend/src/messages',
             'fileMap' => [
                 'zacksleo/yii2/backend/core' => 'core.php',
             ],

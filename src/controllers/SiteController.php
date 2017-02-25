@@ -15,8 +15,8 @@ use zacksleo\yii2\backend\models\forms\ResetPasswordForm;
 class SiteController extends Controller
 
 {
-    public $layout = '@vendor/zacksleo/yii2-backend/views/layouts/layout';
-    public $_viewPath = '@vendor/zacksleo/yii2-backend/views/site/';
+    public $layout = '@vendor/zacksleo/yii2-backend/src/views/layouts/layout';
+    public $_viewPath = '@vendor/zacksleo/yii2-backend/src/views/site/';
 
     public function behaviors()
     {
