@@ -43,7 +43,7 @@ return [
     'Submit' => '提交',
     'Reset' => '重置',
     'Incorrect username or password' => '账号或密码错误',
-    'Signup'=>'注册',
+    'Signup' => '注册',
     'Already have a account' => '已有账号',
     'Back' => '返回',
     'Don\'t have an account yet' => '还没有账号',
@@ -75,4 +75,3 @@ return [
         '您的验证码是：{code}。请不要把验证码泄露给其他人。如非本人操作，可不用理会！',
     'Failed to sent the sms code' => '验证码发送失败',
 ];
-
