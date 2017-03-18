@@ -1,6 +1,7 @@
 <?php
 
 use zacksleo\yii2\ueditor\assets\EditorXiumiAsset;
+
 EditorXiumiAsset::register($this);
 
 $this->registerJsFile('/admin/ueditor/xiumi/script',[
@@ -31,4 +32,3 @@ echo \kucha\ueditor\UEditor::widget([
         ]
     ]
 ]);
-?>

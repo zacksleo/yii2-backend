@@ -75,3 +75,4 @@ return [
         '您的验证码是：{code}。请不要把验证码泄露给其他人。如非本人操作，可不用理会！',
     'Failed to sent the sms code' => '验证码发送失败',
 ];
+

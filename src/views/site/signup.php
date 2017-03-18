@@ -5,7 +5,6 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use backend\themes\metronic\assets\LoginAsset;
 
-
 /* @var \yii\web\Controller $this */
 /* @var \yii\web\View $this */
 /* @var \app\models\forms\LoginForm $model */
@@ -31,8 +30,8 @@ $this->context->layout = 'login4';
             'class' => 'login-form'
         ]
     ]); ?>
-    <h3><?php echo Yii::t('login','Sign Up')?></h3>
-    <p> <?php echo Yii::t('login','Enter your personal details below')?>: </p>
+    <h3><?php echo Yii::t('login', 'Sign Up') ?></h3>
+    <p><?php echo Yii::t('login', 'Enter your personal details below') ?>:</p>
     <?= $form->field($model, 'email', [
         'inputTemplate' => '<div class="form-group"><div class="input-icon"><i class="fa fa-envelope"></i>{input}</div></div>',
     ])->input('email', [
@@ -49,7 +48,7 @@ $this->context->layout = 'login4';
     ])->label('phone', [
         'class' => 'control-label visible-ie8 visible-ie9'
     ]); ?>
-    <p> <?php echo Yii::t('login','Enter your account details below')?>: </p>
+    <p> <?php echo Yii::t('login', 'Enter your account details below') ?>: </p>
     <?= $form->field($model, 'username', [
         'inputTemplate' => '<div class="form-group"><div class="input-icon"><i class="fa fa-user"></i>{input}</div></div>',
     ])->input('username', [
@@ -71,8 +70,8 @@ $this->context->layout = 'login4';
                 class="btn green pull-right"> <?php echo Yii::t('login', 'Sign Up'); ?> </button>
     </div>
     <div class="create-account">
-        <p> <?php echo Yii::t('login','Already have a account')?> ?&nbsp;
-            <a href="<?php echo Url::to(['site/login'])?>"> <?php echo Yii::t('login','Login now')?> </a>
+        <p> <?php echo Yii::t('login', 'Already have a account') ?> ?&nbsp;
+            <a href="<?php echo Url::to(['site/login']) ?>"> <?php echo Yii::t('login', 'Login now') ?> </a>
         </p>
     </div>
     <?php ActiveForm::end(); ?>

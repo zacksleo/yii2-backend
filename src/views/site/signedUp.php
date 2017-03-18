@@ -5,7 +5,6 @@ use yii\bootstrap\ActiveForm;
 
 use backend\themes\metronic\assets\LoginAsset;
 
-
 /* @var \yii\web\Controller $this */
 /* @var \yii\web\View $this */
 /* @var \app\models\forms\LoginForm $model */
