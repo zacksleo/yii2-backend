@@ -1,12 +1,13 @@
 <?php
 
 use yii\helpers\Html;
+use zacksleo\yii2\backend\Module;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\console\models\Admin */
 
-$this->title = Yii::t('app', 'Create Admin');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Admins'), 'url' => ['index']];
+$this->title = Module::t('backend', 'Create Admin');
+$this->params['breadcrumbs'][] = ['label' => Module::t('backend', 'Admins'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-create">

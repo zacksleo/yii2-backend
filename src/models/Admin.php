@@ -9,6 +9,7 @@ use yii\web\UploadedFile;
 use yii\helpers\Url;
 use yii\behaviors\TimestampBehavior;
 use zacksleo\yii2\backend\models\queries\AdminQuery;
+use zacksleo\yii2\backend\Module;
 
 /**
  * User model
@@ -108,15 +109,15 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'avatar' => Yii::t('app', 'avatar'),
-            'id' => Yii::t('app', 'id'),
-            'username' => Yii::t('app', 'username'),
-            'email' => Yii::t('app', 'email'),
-            'is_email_verified' => Yii::t('app', 'is email verified'),
-            'password_hash' => Yii::t('app', 'password'),
-            'status' => Yii::t('app', 'status'),
-            'created_at' => Yii::t('app', 'create time'),
-            'updated_at' => Yii::t('app', 'update time'),
+            'avatar' => Module::t('backend', 'avatar'),
+            'id' => Module::t('backend', 'id'),
+            'username' => Module::t('backend', 'username'),
+            'email' => Module::t('backend', 'email'),
+            'is_email_verified' => Module::t('backend', 'is email verified'),
+            'password_hash' => Module::t('backend', 'password'),
+            'status' => Module::t('backend', 'status'),
+            'created_at' => Module::t('backend', 'create time'),
+            'updated_at' => Module::t('backend', 'update time'),
             'imageFile' => '上传头像',
             'name' => '姓名'
         ];

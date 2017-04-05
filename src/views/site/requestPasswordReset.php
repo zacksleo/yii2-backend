@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use zacksleo\yii2\metronic\bundles\pages\Login4Asset;
+use zacksleo\yii2\backend\Module;
 
 /* @var \yii\web\Controller $this */
 /* @var \yii\web\View $this */
@@ -39,8 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="form-actions">
         <a href="<?= Url::to(['site/login']); ?>" id="back-btn"
-           class="btn red btn-outline"><?php echo Yii::t('login',
-                'Back') ?></a>
+           class="btn red btn-outline">
+            <?php echo Module::t('backend', 'Back') ?></a>
         <?= Html::submitButton('发送', ['class' => 'btn green pull-right']) ?>
     </div>
     <?php ActiveForm::end(); ?>

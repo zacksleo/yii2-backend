@@ -40,7 +40,7 @@ class Module extends BaseModule
             'sourceLanguage' => $this->sourceLanguage,
             'basePath' => '@zacksleo/yii2/backend/src/messages',
             'fileMap' => [
-                'zacksleo/yii2/backend/core' => 'core.php',
+                'zacksleo/yii2/backend/backend' => 'backend.php',
             ],
         ];
     }

@@ -5,6 +5,7 @@ namespace zacksleo\yii2\backend\models\forms;
 use yii;
 use yii\base\Model;
 use zacksleo\yii2\backend\models\Admin;
+use zacksleo\yii2\backend\Module;
 
 /**
  * LoginForm is the model behind the login form.
@@ -41,7 +42,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError('password', Yii::t('app', 'Incorrect username or password'));
+                $this->addError('password', Module::t('backend', 'Incorrect username or password'));
             }
         }
     }
@@ -52,8 +53,8 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => Yii::t('app', 'username'),
-            'password' => Yii::t('app', 'password'),
+            'username' => Module::t('backend', 'username'),
+            'password' => Module::t('backend', 'password'),
         ];
     }
 
