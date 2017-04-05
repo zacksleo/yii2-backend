@@ -47,7 +47,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-                'view' => '@vendor/zacksleo/yii2-backend/views/site/error'
+                'view' => '@vendor/zacksleo/yii2-backend/src/views/site/error'
             ],
         ];
     }
