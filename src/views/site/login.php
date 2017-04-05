@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var \app\models\forms\LoginForm $model */
 /* @var \yii\bootstrap\ActiveForm */
 
-$this->context->layout = '@vendor/zacksleo/yii2-backend/views/layouts/login4';
+$this->context->layout = '@vendor/zacksleo/yii2-backend/src/views/layouts/login4';
 
 ?>
 
