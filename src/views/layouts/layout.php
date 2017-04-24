@@ -92,27 +92,6 @@ $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->i
                             <span></span>
                         </div>
                     </li>
-                    <li class="nav-item start ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
-                            <i class="icon-home"></i>
-                            <span class="title">仪表盘</span>
-                            <span class="arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="nav-item start ">
-                                <a href="#" class="nav-link ">
-                                    <i class="icon-bar-chart"></i>
-                                    <span class="title">用户统计</span>
-                                </a>
-                            </li>
-                            <li class="nav-item start ">
-                                <a href="#" class="nav-link ">
-                                    <i class="icon-bulb"></i>
-                                    <span class="title">App统计</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <?php foreach ($menuList as $menuCatalog): ?>
                         <li class="heading">
                             <h3 class="uppercase"><?= $menuCatalog['label']; ?></h3>
