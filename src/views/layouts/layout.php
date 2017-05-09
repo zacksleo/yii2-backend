@@ -5,6 +5,7 @@ use yii\widgets\Breadcrumbs;
 use zacksleo\yii2\backend\widgets\Alert;
 use zacksleo\yii2\metronic\bundles\layouts\LayoutAsset;
 use zacksleo\yii2\backend\assets\AppAsset;
+use yii\web\View;
 
 /* @var \yii\web\View $this */
 /* @var string $content */
@@ -12,6 +13,10 @@ use zacksleo\yii2\backend\assets\AppAsset;
 LayoutAsset::register($this);
 AppAsset::register($this);
 $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id);
+$js = <<<JS
+$('.nav-item.active').parent().parent().addClass('active');
+JS;
+$this->registerJs($js, View::POS_END);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -107,8 +112,9 @@ $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->i
                                     <ul class="sub-menu" style="display:block;">
                                         <?php if (isset($menuGroup['items'])): ?>
                                             <?php foreach ($menuGroup['items'] as $item): ?>
-                                                <li class="nav-item">
-                                                    <a href="<?= Url::to([$item['url'][0]]); ?>" class="nav-link ">
+                                                <li class="nav-item <?php echo Yii::$app->request->url == Url::to([$item['url'][0]]) ? 'active' : ''; ?>">
+                                                    <a href="<?= Url::to([$item['url'][0]]); ?>"
+                                                       class="nav-link">
                                                         <span class="title"><?= $item['label'] ?></span>
                                                     </a>
                                                 </li>
