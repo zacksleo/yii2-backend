@@ -4,14 +4,12 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use zacksleo\yii2\backend\widgets\Alert;
 use zacksleo\yii2\metronic\bundles\layouts\LayoutAsset;
-use zacksleo\yii2\backend\assets\AppAsset;
 use yii\web\View;
 
 /* @var \yii\web\View $this */
 /* @var string $content */
 
 LayoutAsset::register($this);
-AppAsset::register($this);
 $menuList = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id);
 $js = <<<JS
 $('.nav-item.active').parent().parent().addClass('active');
