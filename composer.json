@@ -13,11 +13,11 @@
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": "*",
-    "yiisoft/yii2-swiftmailer": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "^2.0",
     "yiisoft/yii2-bootstrap": "*",
     "mdmsoft/yii2-admin": "v2.7",
-    "zacksleo/metronic": "~4.7.1",
-    "zacksleo/yii2-metronic": "~2.0.1"
+    "zacksleo/metronic": "^4.7",
+    "zacksleo/yii2-metronic": "^2.0"
   },
   "autoload": {
     "psr-4": {
