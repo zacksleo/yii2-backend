@@ -6,7 +6,7 @@ use zacksleo\yii2\backend\Module;
 
 /* @var \yii\web\Controller $this */
 /* @var \yii\web\View $this */
-/* @var \app\models\forms\LoginForm $model */
+/* @var \zacksleo\yii2\backend\models\forms\LoginForm $model */
 /* @var \yii\bootstrap\ActiveForm */
 
 $this->context->layout = '@vendor/zacksleo/yii2-backend/src/views/layouts/login4';
