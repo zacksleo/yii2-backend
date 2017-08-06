@@ -12,7 +12,7 @@ engines:
   phpmd:
     enabled: true
     config:
-      rulesets: "codesize,design,unusedcode"
+      rulesets: "codesize,design,unusedcode,UnusedLocalVariable"
 ratings:
   paths:
   - "**.js"
