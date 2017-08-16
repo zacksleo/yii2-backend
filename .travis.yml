@@ -19,7 +19,6 @@ services:
 install:
   - travis_retry composer self-update
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
-  - composer config -g mops-gitlab-oauth.mops-gitlab.lianluo.com zpoR5yx9BvwDGbhodhyD
   - travis_retry composer install --prefer-dist --no-interaction
   - travis_retry mysql -e 'CREATE DATABASE test;'
 
