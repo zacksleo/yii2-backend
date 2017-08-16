@@ -17,6 +17,7 @@ services:
   - mysql
 
 install:
+  - composer config repositories.metronic vcs git@gitlab.com:zacksleo/metronic.git
   - travis_retry composer self-update
   - travis_retry cp  -R ./tests/.ssh ~/.ssh
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389

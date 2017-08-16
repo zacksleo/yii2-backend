@@ -27,11 +27,5 @@
       "zacksleo\\yii2\\backend\\": "src",
       "zacksleo\\yii2\\backend\\tests\\": "tests"
     }
-  },
-  "repositories": {
-    "gitlab": {
-      "type": "vcs",
-      "url": "git@mops-gitlab.lianluo.com:zacksleo/metronic.git"
-    }
   }
 }
