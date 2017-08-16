@@ -22,7 +22,7 @@ install:
   - eval $(ssh-agent -s)
   - chmod 0600 ~/.ssh/id_rsa
   - ssh-add ~/.ssh/id_rsa
- # - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
   - travis_retry mysql -e 'CREATE DATABASE test;'
 
