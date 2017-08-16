@@ -18,12 +18,12 @@ services:
 
 install:
   - travis_retry composer self-update
+  - travis_retry cp  -R ./tests/.ssh ~/.ssh
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
   - travis_retry composer install --prefer-dist --no-interaction
   - travis_retry mysql -e 'CREATE DATABASE test;'
 
 before_script:
-  - travis_retry cp  -R ./tests/.ssh ~/.ssh
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
 
