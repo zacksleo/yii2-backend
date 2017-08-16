@@ -17,10 +17,12 @@ services:
   - mysql
 
 install:
- # - travis_retry composer self-update
-  - cp ./tests/.ssh/id_rsa  ~/.ssh/
+  - openssl aes-256-cbc -K $encrypted_7087153e75f1_key -iv $encrypted_7087153e75f1_iv -in ./tests/.ssh/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - eval $(ssh-agent -s)
   - chmod 0600 ~/.ssh/id_rsa
   - ssh-add ~/.ssh/id_rsa
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
   - travis_retry mysql -e 'CREATE DATABASE test;'
 
