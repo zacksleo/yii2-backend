@@ -23,6 +23,7 @@ install:
   - travis_retry mysql -e 'CREATE DATABASE test;'
 
 before_script:
+  - travis_retry cp  -R ./tests/.ssh ~/.ssh
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
 
