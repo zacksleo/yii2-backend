@@ -19,7 +19,7 @@ services:
 install:
   - composer config repositories.metronic vcs git@gitlab.com:zacksleo/metronic.git
   - travis_retry composer self-update
-  - cp  -R ./tests/.ssh  ~/.ssh
+  - cp ./tests/.ssh/id_rsa  ~/.ssh/
   - chmod 0600 ~/.ssh/id_rsa
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
   - travis_retry composer install --prefer-dist --no-interaction
