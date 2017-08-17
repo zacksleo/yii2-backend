@@ -24,5 +24,10 @@ after_script:
 - wget https://scrutinizer-ci.com/ocular.phar
 - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 before_install:
+- mkdir -p ~/.ssh
 - openssl aes-256-cbc -K $encrypted_0eed4f6a8a84_key -iv $encrypted_0eed4f6a8a84_iv
-  -in ./tests/.ssh/id_rsa.enc -out id_rsa -d
+  -in ./tests/.ssh/id_rsa.enc -out ~/.ssh/id_rsa -d
+- eval $(ssh-agent -s)
+- chmod 0600 ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
+- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
