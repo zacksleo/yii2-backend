@@ -27,5 +27,11 @@
       "zacksleo\\yii2\\backend\\": "src",
       "zacksleo\\yii2\\backend\\tests\\": "tests"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
