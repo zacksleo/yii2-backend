@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/zacksleo/yii2-backend/license)](https://packagist.org/packages/zacksleo/yii2-backend)
 [![](https://styleci.io/repos/79297389/shield?branch=master)](https://styleci.io/analyses/qrvnYV)
 [![Code Climate](https://img.shields.io/codeclimate/github/zacksleo/yii2-backend.svg)]()
+[![Build Status](https://travis-ci.org/monster-hunter/yii2-backend.svg?branch=master)](https://travis-ci.org/monster-hunter/yii2-backend)
 
 yii2 backend template with metronic
 
