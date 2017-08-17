@@ -3,6 +3,4 @@ checks:
         code_rating: true
         duplication: true
         excluded_dependencies:
-              - zacksleo/metronic
-              - monster-hunter/metronic
-              - monsterhunter/metronic
+               - zacksleo/metronic
