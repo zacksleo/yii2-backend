@@ -14,7 +14,7 @@ install:
 - travis_retry mysql -e 'CREATE DATABASE test;'
 - travis_retry composer self-update
 before_script:
-- composer config repositories.metronic vcs git@gitlab.com:monster-hunter/metronic.git
+- composer config repositories.metronic vcs git@gitlab.com:zacksleo/metronic.git
 - composer install --prefer-dist --no-interaction
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
