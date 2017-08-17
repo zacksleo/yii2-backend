@@ -82,7 +82,7 @@ class AdminControllerTest extends TestCase
                 'name' => 'test.jpg',
                 'type' => 'image/jpeg',
                 'size' => 74463,
-                'tmp_name' => __DIR__ . '/img/test.jpg',
+                'tmp_name' => __DIR__ . '/web/test.jpg',
                 'error' => 0,
             ],
         ];
