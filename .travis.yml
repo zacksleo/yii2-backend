@@ -13,9 +13,6 @@ install:
 - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
 - travis_retry mysql -e 'CREATE DATABASE test;'
 before_script:
-- mkdir -p ~/.ssh
-- openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in ./tests/.ssh/id_rsa.enc -out id_rsa -d
-- eval $(ssh-agent -s)
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source --dev
 script:
@@ -25,4 +22,4 @@ after_script:
 - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 before_install:
 - openssl aes-256-cbc -K $encrypted_0eed4f6a8a84_key -iv $encrypted_0eed4f6a8a84_iv
-  -in id_rsa.enc -out id_rsa -d
+  -in ./tests/.ssh/id_rsa.enc -out id_rsa -d
