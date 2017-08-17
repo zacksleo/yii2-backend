@@ -3,7 +3,7 @@ checks:
         code_rating: true
         duplication: true
         excluded_dependencies:
-               - zacksleo/metronic
+              - zacksleo/metronic
 tools:
     external_code_coverage:
         timeout: 1800 # Timeout in seconds.
