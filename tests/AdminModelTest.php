@@ -10,6 +10,8 @@ namespace zacksleo\yii2\backend\tests;
 
 
 use yii;
+use yii\base\Exception;
+use yii\base\NotSupportedException;
 use yii\web\UploadedFile;
 use zacksleo\yii2\backend\models\Admin;
 
@@ -42,7 +44,7 @@ class AdminModelTest extends TestCase
 
         $this->model->username = "username";
         $this->assertTrue($this->model->validate());
-        Yii::$app->request->bodyParams  = '';
+        Yii::$app->request->bodyParams = '';
 
         $this->model->imageFile = UploadedFile::getInstanceByName('avatar');
         $this->assertTrue($this->model->validate());
@@ -76,17 +78,53 @@ class AdminModelTest extends TestCase
         $model->imageFile = UploadedFile::getInstanceByName('imageFile');
         $this->assertTrue($model->upload());
         $this->assertTrue($model->save());
+
+        $model = new Admin();
+        $model->scenario = "reset";
+        $model->imageFile = UploadedFile::getInstanceByName('imageFile');
+        $this->assertFalse($model->upload());
     }
 
     public function testGetImageUrl()
     {
         $model = Admin::findIdentity(1);
         $url = $model->getImageUrl();
-        $res = md5_file($url) == md5_file(__DIR__.'/web/test.jpg');
+        $res = md5_file($url) == md5_file(__DIR__ . '/web/test.jpg');
         $this->assertTrue($res);
     }
 
-    //public function get
+    public function testFindIdentityByAccessToken()
+    {
+        try {
+            Admin::findIdentityByAccessToken('');
+        } catch (Exception $e) {
+            $this->assertTrue($e instanceof NotSupportedException);
+            return;
+        }
+    }
+
+    public function testValidatePassword()
+    {
+        $model = Admin::findOne(1);
+        $model->validatePassword("1234");
+        $this->assertFalse($model->validatePassword("1234"));
+        $this->assertTrue($model->validatePassword("1!an1u0"));
+    }
+
+    public function testGeneratePasswordResetToken()
+    {
+        $model = Admin::findOne(1);
+        $res = $model->generatePasswordResetToken(true);
+        $this->assertTrue($res);
+    }
+
+    public function testResetPassword()
+    {
+        $model = Admin::findOne(1);
+        $this->assertTrue($model->resetPassword('lian1uo'));
+        $this->assertTrue($model->validatePassword("lian1uo"));
+        $this->assertTrue($model->resetPassword('1!an1u0'));
+    }
 
     public static function setUpBeforeClass()
     {
