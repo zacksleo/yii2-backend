@@ -46,6 +46,9 @@ class AdminModelTest extends TestCase
 
         $this->model->imageFile = UploadedFile::getInstanceByName('avatar');
         $this->assertTrue($this->model->validate());
+
+        $this->model->email = "zacksleo@gmail.com";
+        $this->assertFalse($this->model->validate());
     }
 
     public function testFindIdentity()
