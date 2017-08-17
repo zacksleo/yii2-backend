@@ -4,6 +4,8 @@ checks:
         duplication: true
         excluded_dependencies:
               - zacksleo/metronic
+              - monster-hunter/metronic
+              - monsterhunter/metronic
 tools:
     external_code_coverage:
         timeout: 1800 # Timeout in seconds.
