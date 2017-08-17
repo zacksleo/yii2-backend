@@ -127,7 +127,6 @@ EOF;
             'user.passwordResetTokenExpire'=>3600,
             'user.emailConfirmationTokenExpire' => 3600,
             'admin.email' => 'admin@example.com',
-
             'support.email' => 'feedback@moguyun.net.cn',
             'support.name' => '技术支持',
         ];
