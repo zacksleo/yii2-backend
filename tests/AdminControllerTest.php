@@ -72,6 +72,11 @@ class AdminControllerTest extends TestCase
         Yii::$app->request->bodyParams = $data;
         $res = Yii::$app->runAction('backend/admin/update', ['id' => 1]);
         $this->assertTrue($res);
+
+        $data['Admin']['username'] = 'lianluo';
+        Yii::$app->request->bodyParams = $data;
+        $res = Yii::$app->runAction('backend/admin/update', ['id' => 1]);
+        $this->assertTrue($res);
     }
 
     public static function setUpBeforeClass()

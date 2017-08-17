@@ -123,6 +123,15 @@ EOF;
 
     protected function mockApplication($config = [], $appClass = '\yii\console\Application')
     {
+        $config['params']=[
+            'user.passwordResetTokenExpire'=>3600,
+            'user.emailConfirmationTokenExpire' => 3600,
+            'admin.email' => 'admin@example.com',
+
+            'support.email' => 'feedback@moguyun.net.cn',
+            'support.name' => '技术支持',
+        ];
+
          new $appClass(ArrayHelper::merge([
             'id' => 'testapp',
             'basePath' => __DIR__,
