@@ -16,7 +16,7 @@
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "mdmsoft/yii2-admin": "v2.7",
     "zacksleo/metronic": "^4.7",
-    "zacksleo/yii2-metronic": "^2.0"
+    "zacksleo/yii2-metronic": "2.0.9"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
@@ -26,11 +26,5 @@
       "zacksleo\\yii2\\backend\\": "src",
       "zacksleo\\yii2\\backend\\tests\\": "tests"
     }
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    }
-  ]
+  }
 }
