@@ -12,8 +12,8 @@ services:
 install:
 - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
 - travis_retry mysql -e 'CREATE DATABASE test;'
-before_script:
 - travis_retry composer self-update
+before_script:
 - composer config repositories.metronic vcs git@gitlab.com:monster-hunter/metronic.git
 - composer install --prefer-dist --no-interaction
 script:
