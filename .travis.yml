@@ -15,8 +15,6 @@ install:
 before_script:
 - travis_retry composer self-update
 - composer config repositories.metronic vcs git@gitlab.com:monster-hunter/metronic.git
-- composer require zacksleo/metronic --prefer-dist
-- composer require zacksleo/metronic --prefer-dist
 - composer install --prefer-dist --no-interaction
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
