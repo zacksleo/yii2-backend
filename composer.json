@@ -16,7 +16,6 @@
     "yiisoft/yii2-swiftmailer": "^2.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "mdmsoft/yii2-admin": "v2.7",
-    "zacksleo/metronic": "^4.7",
     "zacksleo/yii2-metronic": "^2.0"
   },
   "require-dev": {
