@@ -16,32 +16,14 @@ use zacksleo\yii2\backend\tests\models\User;
 class UserController extends Controller
 {
     /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ]
-                ]
-            ]
-        ];
-    }
-
-    /**
      * Lists all User models.
      * @return ActiveDataProvider
      */
     public function actionIndex()
     {
-        return $dataProvider = new ActiveDataProvider([
-            'query' => User::find(),
-        ]);
+        $params = Yii::$app->request->bodyParams;
+        $userSearch = new \mdm\admin\models\searchs\User();
+        return $userSearch->search($params);
 
     }
 

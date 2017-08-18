@@ -54,7 +54,7 @@ class AdminControllerTest extends TestCase
             $this->assertTrue($res->id > 0);
             $res = Yii::$app->runAction('backend/admin/delete', ['id' => $res->id]);
             $this->assertTrue($res > 0);
-        } catch (NotFoundHttpException $e){
+        } catch (NotFoundHttpException $e) {
             //var_dump($e->getMessage());
             return;
         }
@@ -92,5 +92,4 @@ class AdminControllerTest extends TestCase
             ],
         ];
     }
-
 }

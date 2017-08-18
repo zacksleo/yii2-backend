@@ -8,7 +8,6 @@
 
 namespace zacksleo\yii2\backend\tests;
 
-
 use zacksleo\yii2\backend\models\forms\LoginForm;
 
 class LoginFormTest extends TestCase
@@ -30,5 +29,5 @@ class LoginFormTest extends TestCase
         $this->assertTrue(empty($form->getErrors()));
         $res = $form->attributeLabels();
         $this->assertTrue(count($res) == 2);
-   }
+    }
 }

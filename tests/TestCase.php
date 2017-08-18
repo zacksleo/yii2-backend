@@ -72,37 +72,23 @@ class TestCase extends PHPUnit_Framework_TestCase
 EOF;
         $userSql = <<<EOF
         -- auto-generated definition
-        create table test_user
+        create table `test_user`
         (
-            id int auto_increment
-                primary key,
-            avatar varchar(255) null comment '头像',
-            phone varchar(15) not null comment '手机号',
-            created_at int not null comment '创建时间',
-            updated_at int not null comment '更新时间',
-            union_id varchar(255) not null comment 'UnionID',
-            easemob_username varchar(255) null comment '环信用户名'
-        )
-        ;
-EOF;
-        $menuSql = <<<EOF
-        -- auto-generated definition
-        create table test_admin_menu
-        (
-            id int auto_increment
-                primary key,
-            name varchar(128) not null,
-            parent int null,
-            route varchar(255) null,
-            `order` int null,
-            data blob null
-        );
+            `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            `username` varchar(32) NOT NULL,
+            `auth_key` varchar(32) NOT NULL,
+            `password_hash` varchar(256) NOT NULL,
+            `password_reset_token` varchar(256),
+            `email` varchar(256) NOT NULL,
+            `status` integer not null default 10,
+            `created_at` integer not null,
+            `updated_at` integer not null
+        )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 EOF;
         try {
             $db = Yii::$app->getDb();
             $db->createCommand($adminSql)->execute();
             $db->createCommand($userSql)->execute();
-            $db->createCommand($menuSql)->execute();
         } catch (yii\db\Exception $e) {
             //var_dump($e->getMessage());
             return;
@@ -123,15 +109,15 @@ EOF;
 
     protected function mockApplication($config = [], $appClass = '\yii\console\Application')
     {
-        $config['params']=[
-            'user.passwordResetTokenExpire'=>3600,
+        $config['params'] = [
+            'user.passwordResetTokenExpire' => 3600,
             'user.emailConfirmationTokenExpire' => 3600,
             'admin.email' => 'admin@example.com',
             'support.email' => 'feedback@moguyun.net.cn',
             'support.name' => '技术支持',
         ];
 
-         new $appClass(ArrayHelper::merge([
+        new $appClass(ArrayHelper::merge([
             'id' => 'testapp',
             'basePath' => __DIR__,
             'vendorPath' => $this->getVendorPath(),
@@ -152,7 +138,7 @@ EOF;
                     ]
                 ],
                 'user' => [
-                    'identityClass' => 'zacksleo\yii2\backend\tests\model\User',
+                    'identityClass' => 'zacksleo\yii2\backend\tests\models\User',
                 ]
             ],
             'modules' => [
@@ -162,7 +148,7 @@ EOF;
                 ]
             ]
         ], $config));
-        \Yii::setAlias('@web', __DIR__.'/web');
+        \Yii::setAlias('@web', __DIR__ . '/web');
     }
 
     private function getVendorPath()

@@ -8,7 +8,6 @@
 
 namespace zacksleo\yii2\backend\tests;
 
-
 use yii;
 use yii\base\Exception;
 use yii\base\NotSupportedException;

@@ -28,14 +28,14 @@ class ResetPasswordFormTest extends TestCase
         $this->assertTrue($form->resetPassword());
         $model->generatePasswordResetToken(true);
 
-        try{
+        try {
             $form = new ResetPasswordForm('');
-        }catch (\yii\base\InvalidParamException $e){
+        } catch (\yii\base\InvalidParamException $e) {
             $this->assertTrue($e instanceof \yii\base\InvalidParamException);
         }
-        try{
+        try {
             $form = new ResetPasswordForm('zxcvbfd');
-        }catch (\yii\base\InvalidParamException $e){
+        } catch (\yii\base\InvalidParamException $e) {
             $this->assertTrue($e instanceof \yii\base\InvalidParamException);
         }
     }

@@ -8,7 +8,6 @@
 
 namespace yii\web;
 
-
 use zacksleo\yii2\backend\models\Admin;
 use zacksleo\yii2\backend\models\queries\AdminQuery;
 use zacksleo\yii2\backend\tests\TestCase;

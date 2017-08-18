@@ -63,4 +63,16 @@ class UserControllerTest extends TestCase
         $res = Yii::$app->runAction('backend/user/delete', ['id' => $model->id]);
         $this->assertTrue($res > 0);
     }
+
+    public function testIndex()
+    {
+        $data = [
+            'User' => [
+                'username' => 'username'
+            ]
+        ];
+        Yii::$app->request->bodyParams = $data;
+        $res = Yii::$app->runAction('backend/user/index');
+        $this->assertTrue($res->getTotalCount() > 0);
+    }
 }

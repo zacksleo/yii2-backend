@@ -8,7 +8,6 @@
 
 namespace zacksleo\yii2\backend\tests;
 
-
 use yii\base\InvalidParamException;
 use zacksleo\yii2\backend\models\Admin;
 use zacksleo\yii2\backend\models\forms\ChangePasswordForm;
