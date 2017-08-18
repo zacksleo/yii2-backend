@@ -9,6 +9,7 @@
 namespace zacksleo\yii2\backend\tests;
 
 
+use yii\base\InvalidParamException;
 use zacksleo\yii2\backend\models\Admin;
 use zacksleo\yii2\backend\models\forms\ChangePasswordForm;
 use yii;
@@ -25,9 +26,19 @@ class ChangePasswordFormTest extends TestCase
     public function testVerifyOldPassword()
     {
         $form = new ChangePasswordForm();
-        $form->old_password = "1!an1u0";
         $form->verifyOldPassword('old_password', []);
         $this->assertTrue(empty($form->getErrors()));
+        //$form->validate();
+        $form->old_password = "1ian1u0";
+        $form->verifyOldPassword('old_password', []);
+        $this->assertFalse(!empty($form->getErrors()));
+
+        Yii::$app->user->logout();
+        try{
+            $form = new ChangePasswordForm();
+        }catch (InvalidParamException $e){
+            $this->assertTrue($e instanceof  InvalidParamException);
+        }
     }
 
     public function testResetPassword()
