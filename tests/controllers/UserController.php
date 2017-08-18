@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\console\tests\controllers;
+namespace zacksleo\yii2\backend\tests\controllers;
 
 use Yii;
-use app\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use zacksleo\yii2\backend\tests\models\User;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -29,29 +29,20 @@ class UserController extends Controller
                         'roles' => ['@'],
                     ]
                 ]
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            ]
         ];
     }
 
     /**
      * Lists all User models.
-     * @return mixed
+     * @return ActiveDataProvider
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+        return $dataProvider = new ActiveDataProvider([
             'query' => User::find(),
         ]);
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
     }
 
     /**
@@ -61,27 +52,19 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        return $this->findModel($id);
     }
 
     /**
      * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return User
      */
     public function actionCreate()
     {
         $model = new User();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+        $model->load(Yii::$app->request->bodyParams) && $model->save();
+        return $model;
     }
 
     /**
@@ -93,14 +76,7 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
+        return $model->load(Yii::$app->request->post()) && $model->save();
     }
 
     /**
@@ -111,9 +87,7 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return $this->findModel($id)->delete();
     }
 
     /**
