@@ -104,8 +104,8 @@ class AdminModelTest extends TestCase
     {
         $model = Admin::findIdentity(1);
         $url = $model->getImageUrl();
-        //$res = md5_file($url) == md5_file(__DIR__ . '/web/test.jpg');
-        //$this->assertTrue($res);
+        $res = md5_file($url) == md5_file(__DIR__ . '/web/test.jpg');
+        $this->assertTrue($res);
     }
 
     public function testFindIdentityByAccessToken()
