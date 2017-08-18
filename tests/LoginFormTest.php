@@ -18,13 +18,17 @@ class LoginFormTest extends TestCase
         $form = new LoginForm();
         $form->username = "lianluo";
         $form->password = "lianluo";
+        $form->validate();
         $form->login();
         $this->assertFalse(empty($form->getErrors()));
+
         $form->username = "lianluo";
         $form->password = "1!an1u0";
         $form->rememberMe = true;
+        $form->validate();
         $form->login();
         $this->assertTrue(empty($form->getErrors()));
-    }
-
+        $res = $form->attributeLabels();
+        $this->assertTrue(count($res) == 2);
+   }
 }
