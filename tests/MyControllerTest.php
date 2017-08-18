@@ -23,9 +23,9 @@ class MyControllerTest extends TestCase
     public function testAvatar()
     {
         $data = [
-          'Admin'=>[
-              'imageFile'=>yii\web\UploadedFile::getInstanceByName('imageFile')
-          ]
+            'Admin' => [
+                'imageFile' => yii\web\UploadedFile::getInstanceByName('imageFile')
+            ]
         ];
         Yii::$app->request->bodyParams = $data;
         $res = Yii::$app->runAction('backend/my/avatar');
@@ -35,10 +35,10 @@ class MyControllerTest extends TestCase
     public function testChangePassword()
     {
         $data = [
-            'ChangePasswordForm'=>[
-                'old_password'=>'1!an1u0',
-                'new_password'=>"111aaa",
-                'new_password_repeat'=>"111aaa"
+            'ChangePasswordForm' => [
+                'old_password' => '1!an1u0',
+                'new_password' => "111aaa",
+                'new_password_repeat' => "111aaa"
             ]
         ];
         Yii::$app->request->bodyParams = $data;
@@ -46,10 +46,10 @@ class MyControllerTest extends TestCase
         $this->assertTrue($res);
 
         $data = [
-            'ChangePasswordForm'=>[
-                'old_password'=>'111aaa',
-                'new_password'=>"1!an1u0",
-                'new_password_repeat'=>"1!an1u0"
+            'ChangePasswordForm' => [
+                'old_password' => '111aaa',
+                'new_password' => "1!an1u0",
+                'new_password_repeat' => "1!an1u0"
             ]
         ];
         Yii::$app->request->bodyParams = $data;
@@ -60,9 +60,9 @@ class MyControllerTest extends TestCase
     public function testProfile()
     {
         $data = [
-          'Admin'=>[
-              'name' => 'lianluo-1'
-          ]
+            'Admin' => [
+                'name' => 'lianluo-1'
+            ]
         ];
         Yii::$app->request->bodyParams = $data;
         $res = Yii::$app->runAction('backend/my/profile');

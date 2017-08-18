@@ -155,5 +155,4 @@ EOF;
     {
         return dirname(__DIR__) . '/vendor';
     }
-
 }

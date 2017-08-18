@@ -24,7 +24,6 @@ class UserController extends Controller
         $params = Yii::$app->request->bodyParams;
         $userSearch = new \mdm\admin\models\searchs\User();
         return $userSearch->search($params);
-
     }
 
     /**

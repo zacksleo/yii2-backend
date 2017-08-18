@@ -70,7 +70,6 @@ class AdminController extends Controller
         $model = new Admin();
         $model->load(Yii::$app->request->post()) && $model->save();
         return $model;
-
     }
 
     /**
@@ -83,7 +82,6 @@ class AdminController extends Controller
     {
         $model = $this->findModel($id);
         return $model->load(Yii::$app->request->post()) && $model->save();
-
     }
 
     /**
