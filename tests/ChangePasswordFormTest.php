@@ -27,18 +27,27 @@ class ChangePasswordFormTest extends TestCase
     {
         $form = new ChangePasswordForm();
         $form->old_password = "1!an1u0";
+        $form->new_password = "1ian1uo";
+        $form->new_password_repeat = "1ian1uo1";
+        $this->assertFalse($form->validate());
+
+        $form->new_password_repeat = "1ian1uo";
+        $this->assertTrue($form->validate());
         $form->verifyOldPassword('old_password', []);
+
+        $form->validate();
         $this->assertTrue(empty($form->getErrors()));
-        //$form->validate();
-        $form->old_password = "1ian1u0";
+
+        $form->old_password = "1ianlu0";
         $form->verifyOldPassword('old_password', []);
-        $this->assertFalse(!empty($form->getErrors()));
+        $form->validate();
+        $this->assertFalse(empty($form->getErrors()));
 
         Yii::$app->user->logout();
-        try{
+        try {
             $form = new ChangePasswordForm();
-        }catch (InvalidParamException $e){
-            $this->assertTrue($e instanceof  InvalidParamException);
+        } catch (InvalidParamException $e) {
+            $this->assertTrue($e instanceof InvalidParamException);
         }
     }
 
