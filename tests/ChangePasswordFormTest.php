@@ -26,6 +26,7 @@ class ChangePasswordFormTest extends TestCase
     public function testVerifyOldPassword()
     {
         $form = new ChangePasswordForm();
+        $form->old_password = "1!an1u0";
         $form->verifyOldPassword('old_password', []);
         $this->assertTrue(empty($form->getErrors()));
         //$form->validate();

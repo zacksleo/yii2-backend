@@ -19,12 +19,15 @@ class PasswordResetRequestFormTest extends TestCase
     {
         $form = new PasswordResetRequestForm();
         $form->email = "zacksleo@gmail.com";
+        $this->assertTrue($form->validate());
         try{
             $res = $form->sendEmail();
             $this->assertTrue($res);
         }catch (Swift_TransportException $e){
             return;
         }
-
+        $form->email = "1111@qq.com";
+        $res = $form->sendEmail();
+        $this->assertFalse($res);
     }
 }
