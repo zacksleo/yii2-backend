@@ -149,13 +149,6 @@ class AdminModelTest extends TestCase
         $this->assertTrue(!empty($model->auth_key));
     }
 
-    public function testGenerateEmailConfirmationToken()
-    {
-        $model = new Admin();
-        $model->generateEmailConfirmationToken();
-        $this->assertTrue(!empty($model->email_confirmation_token));
-    }
-
     public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
