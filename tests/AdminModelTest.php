@@ -39,17 +39,33 @@ class AdminModelTest extends TestCase
         $this->model->email = "1222@qq.com";
         $this->assertTrue($this->model->validate());
 
-        $this->model->username = "username ";
+        $this->model->username = "username ";           //用户名不能包含空格
+        $this->assertFalse($this->model->validate());
+
+        $this->model->username = "1username";           //用户名以字母开头
         $this->assertFalse($this->model->validate());
 
         $this->model->username = "username";
         $this->assertTrue($this->model->validate());
-        Yii::$app->request->bodyParams = '';
 
-        $this->model->imageFile = UploadedFile::getInstanceByName('avatar');
+        $this->model->password_hash = "1111111";        //密码中至少包含一位字母
+        $this->assertFalse($this->model->validate());
+
+        $this->model->password_hash = "zxcvbnm";        //密码中至少包含一位数字
+        $this->assertFalse($this->model->validate());
+
+        $this->model->password_hash = "zxcvbnm111";
         $this->assertTrue($this->model->validate());
 
-        $this->model->email = "zacksleo@gmail.com";
+        $this->model->username = "lianluo";             //用户名唯一
+        $this->assertFalse($this->model->validate());
+
+        $this->model->username = "username";
+        $this->model->imageFile = UploadedFile::getInstanceByName('imageFile');
+        $this->assertTrue($this->model->validate());
+
+
+        $this->model->email = "zacksleo@gmail.com";     //邮箱唯一
         $this->assertFalse($this->model->validate());
     }
 
@@ -126,6 +142,20 @@ class AdminModelTest extends TestCase
         $this->assertTrue($model->resetPassword('1!an1u0'));
     }
 
+    public function testGenerateAuthKey()
+    {
+        $model = new Admin();
+        $model->generateAuthKey();
+        $this->assertTrue(!empty($model->auth_key));
+    }
+
+    public function testGenerateEmailConfirmationToken()
+    {
+        $model = new Admin();
+        $model->generateEmailConfirmationToken();
+        $this->assertTrue(!empty($model->email_confirmation_token));
+    }
+
     public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
@@ -135,6 +165,13 @@ class AdminModelTest extends TestCase
                 'type' => 'image/jpeg',
                 'size' => 74463,
                 'tmp_name' => __DIR__ . '/web/test.jpg',
+                'error' => 0,
+            ],
+            'bigFile' => [
+                'name' => 'test.jpeg',
+                'type' => 'image/jpeg',
+                'size' => 74463,
+                'tmp_name' => __DIR__ . '/web/test.jpeg',
                 'error' => 0,
             ],
         ];
