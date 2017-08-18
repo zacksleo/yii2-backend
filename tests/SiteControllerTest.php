@@ -8,7 +8,6 @@
 
 namespace zacksleo\yii2\backend\tests;
 
-
 use Swift_TransportException;
 use zacksleo\yii2\backend\models\Admin;
 
