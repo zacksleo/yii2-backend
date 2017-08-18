@@ -1,0 +1,32 @@
+language: php
+matrix:
+  fast_finish: true
+php:
+- 7.1
+cache:
+  directories:
+  - "$HOME/.composer/cache"
+  - vendor
+services:
+- mysql
+install:
+- composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
+- travis_retry mysql -e 'CREATE DATABASE test;'
+- travis_retry composer self-update
+before_script:
+- composer config repositories.metronic vcs git@gitlab.com:monster-hunter/metronic.git
+- composer require zacksleo/metronic --prefer-dist
+- composer install --prefer-dist --no-interaction
+script:
+- "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
+after_script:
+- wget https://scrutinizer-ci.com/ocular.phar
+- php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+before_install:
+- mkdir -p ~/.ssh
+- openssl aes-256-cbc -K $encrypted_0eed4f6a8a84_key -iv $encrypted_0eed4f6a8a84_iv
+  -in ./tests/.ssh/id_rsa.enc -out ~/.ssh/id_rsa -d
+- eval $(ssh-agent -s)
+- chmod 0600 ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
+- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
