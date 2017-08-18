@@ -280,7 +280,6 @@ class Admin extends ActiveRecord implements IdentityInterface
         if ($this->validate()) {
             $path = date('Ymd') . '/';
             $fullpath = \Yii::getAlias('@app') . '/web/uploads/' . $path;
-
             if (!file_exists($fullpath)) {
                 mkdir($fullpath);
             }
