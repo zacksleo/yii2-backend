@@ -1,8 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use backend\widgets\Alert;
-use backend\themes\metronic\assets\Layout3Asset;
+use zacksleo\yii2\backend\widgets\Alert;
+use zacksleo\yii2\metronic\bundles\layouts\Layout3Asset;
 
 /* @var \yii\web\View $this */
 /* @var string $content */

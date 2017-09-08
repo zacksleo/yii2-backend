@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\web\View;
-use common\widgets\Alert;
+use zacksleo\yii2\backend\widgets\Alert;
 use zacksleo\yii2\metronic\bundles\pages\Login4Asset;
 
 /* @var \yii\web\View $this */
