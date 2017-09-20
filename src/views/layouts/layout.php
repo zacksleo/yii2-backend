@@ -15,6 +15,10 @@ $js = <<<JS
 $('.nav-item.active').parent().parent().addClass('active');
 JS;
 $this->registerJs($js, View::POS_END);
+$css = <<<CSS
+h1.page-title+div>h1{display:none}
+CSS;
+$this->registerCss($css);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
