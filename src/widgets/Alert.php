@@ -51,16 +51,23 @@ class Alert extends \yii\bootstrap\Widget
             if (isset($this->alertTypes[$type])) {
                 /* initialize css class for each alert box */
                 $this->options['class'] = $this->alertTypes[$type] . $appendCss;
-
                 /* assign unique id to each alert box */
                 $this->options['id'] = $this->getId() . '-' . $type;
-
-                echo \yii\bootstrap\Alert::widget([
-                    'body' => $message,
-                    'closeButton' => $this->closeButton,
-                    'options' => $this->options,
-                ]);
-
+                if (is_array($message)) {
+                    foreach ($message as $msg) {
+                        echo \yii\bootstrap\Alert::widget([
+                            'body' => $msg,
+                            'closeButton' => $this->closeButton,
+                            'options' => $this->options,
+                        ]);
+                    }
+                } else {
+                    echo \yii\bootstrap\Alert::widget([
+                        'body' => $message,
+                        'closeButton' => $this->closeButton,
+                        'options' => $this->options,
+                    ]);
+                }
                 $session->removeFlash($type);
             }
         }
