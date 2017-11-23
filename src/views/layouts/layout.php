@@ -68,7 +68,7 @@ $this->registerCss($css);
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="<?= Url::to(['my/profile']); ?>">
+                                <a href="<?= Url::to(['/backends/my/profile']); ?>">
                                     <i class="icon-user"></i> 个人信息 </a>
                             </li>
                             <li class="divider"></li>

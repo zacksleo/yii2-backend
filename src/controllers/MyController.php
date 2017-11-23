@@ -1,23 +1,16 @@
 <?php
-/**
- * @link http://www.lianluo.com/
- * @copyright Copyright (c) 2016 Lianluo
- * @author lijunwei@lianluo.com
- * @date 2016-09-26
- * @version 1.0
- */
 
-namespace app\modules\console\controllers;
+namespace zacksleo\yii2\backend\controllers;
 
-use app\modules\console\models\forms\ChangePasswordForm;
+use zacksleo\yii2\backend\models\forms\ChangePasswordForm;
 use yii;
-use app\modules\console\models\Admin;
+use zacksleo\yii2\backend\models\Admin;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
 class MyController extends Controller
 {
-    public $layout = '@app/modules/console/views/my/layouts';
+    public $layout = '@vendor/zacksleo/yii2-backend/src/views/my/layouts';
 
     public function behaviors()
     {
@@ -31,9 +24,6 @@ class MyController extends Controller
                         'roles' => ['@'],
                     ]
                 ],
-                'denyCallback' => function ($rule, $action) {
-                    return $this->redirect('/portal/default/login');
-                }
             ]
         ];
     }

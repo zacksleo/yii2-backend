@@ -1,12 +1,13 @@
 <?php
+
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\themes\metronic\assets\ProfileAsset;
+use zacksleo\yii2\metronic\bundles\pages\ProfileAsset;
 
 $model = $this->params['model'];
 ProfileAsset::register($this);
 ?>
-<?php $this->beginContent('@app/themes/metronic/views/layouts/layout.php'); ?>
+<?php $this->beginContent('@vendor/zacksleo/yii2-backend/src/views/layouts/layout.php'); ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -16,12 +17,13 @@ ProfileAsset::register($this);
             <div class="portlet light profile-sidebar-portlet bordered">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="<?= $model->avatar; ?>" class="img-responsive" alt=""></div>
+                    <img src="<?= $model->getImageUrl(); ?>" class="img-responsive" alt=""></div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name"> <?= $model->username; ?></div>
                     <div class="profile-usertitle-job"> <?= $model->name; ?></div>
+                    <br/><br/><br/><br/><br/><br/>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
             </div>
@@ -45,7 +47,7 @@ ProfileAsset::register($this);
                                 <li class="<?= $this->context->action->id == 'avatar' ? 'active' : ''; ?>">
                                     <a href="<?= Url::to(['my/avatar']); ?>">设置头像</a>
                                 </li>
-                                <li class="<?= $this->context->action->id == 'password' ? 'active' : ''; ?>">
+                                <li class="<?= $this->context->action->id == 'change-password' ? 'active' : ''; ?>">
                                     <a href="<?= Url::to(['my/change-password']); ?>">修改密码</a>
                                 </li>
                             </ul>

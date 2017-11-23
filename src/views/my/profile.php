@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $model app\modules\console\models\Admin */
+/* @var $model \zacksleo\yii2\backend\models\Admin */
+
 /* @var $form ActiveForm */
 
 use yii\helpers\Html;
@@ -22,7 +23,6 @@ $this->params['model'] = $model;
             <p class="form-control-static"><?= $model->email; ?></p>
         </div>
     </div>
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary']) ?>
+    <div class="form-group clearfix">
     </div>
 <?php ActiveForm::end(); ?>
