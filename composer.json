@@ -23,11 +23,9 @@
   },
   "autoload": {
     "psr-4": {
-      "zacksleo\\yii2\\backend\\": "src"
+      "zacksleo\\yii2\\backend\\": "src",
+      "zacksleo\\yii2\\backend\\tests\\": "tests"
     }
-  },
-  "autoload-dev": {
-    "zacksleo\\yii2\\backend\\tests\\": "tests"
   },
   "repositories": [
     {

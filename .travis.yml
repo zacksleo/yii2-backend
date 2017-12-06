@@ -16,7 +16,7 @@ install:
 before_script:
 - composer config repositories.metronic vcs git@gitlab.com:zacksleo/metronic.git
 - composer require zacksleo/metronic --prefer-dist
-- composer install --prefer-source --no-interaction
+- composer install --prefer-dist --dev --no-interaction
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
 after_script:
