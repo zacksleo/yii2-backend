@@ -73,7 +73,7 @@ $this->registerCss($css);
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?= Url::to(['site/logout']); ?>">
+                                <a href="<?= Url::to(['/site/logout']); ?>">
                                     <i class="icon-key"></i> 注销 </a>
                             </li>
                         </ul>
