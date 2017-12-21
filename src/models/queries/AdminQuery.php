@@ -12,7 +12,7 @@ class AdminQuery extends ActiveQuery
     public function canLogin()
     {
         return $this->andWhere([
-            'status' => Admin::STATUS_ACTIVE,
+            '>', 'status' , Admin::STATUS_DELETED,
         ]);
     }
 
