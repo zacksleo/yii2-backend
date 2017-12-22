@@ -1,4 +1,5 @@
 <?php
+
 namespace zacksleo\yii2\backend\models;
 
 use yii;
@@ -31,8 +32,8 @@ use zacksleo\yii2\backend\Module;
  */
 class Admin extends ActiveRecord implements IdentityInterface
 {
-    const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 10;
 
     public $imageFile;
 
@@ -81,7 +82,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             ['password_hash', 'match', 'pattern' => '/[a-zA-Z]/', 'message' => '密码至少包含一个字母', 'on' => 'reset'],
 
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
 
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'unique', 'on' => 'reset'],
@@ -269,6 +270,14 @@ class Admin extends ActiveRecord implements IdentityInterface
         $this->setPassword($password);
         $this->password_reset_token = null;
         return $this->save();
+    }
+
+    public static function getStatusList()
+    {
+        return [
+            self::STATUS_ACTIVE => '激活',
+            self::STATUS_INACTIVE => '禁用',
+        ];
     }
 
     /**
