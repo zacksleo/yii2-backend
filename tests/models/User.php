@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
 
 class User extends \mdm\admin\models\User
 {
-    const STATUS_ACTIVE = 1;
+    const STATUS_ACTIVE = 10;
     const STATUS_INACTIVE = 0;
 
     public function rules()

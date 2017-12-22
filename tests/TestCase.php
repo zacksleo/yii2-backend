@@ -56,7 +56,7 @@ class TestCase extends PHPUnit_Framework_TestCase
             email varchar(64) not null comment '邮箱',
             password_hash varchar(64) not null comment '密码',
             password_reset_token varchar(255) null comment '重置密码Token',
-            status tinyint(1) default '1' not null comment '状态',
+            status tinyint(1) default '10' not null comment '状态',
             created_at int not null comment '创建时间',
             updated_at int not null comment '更新时间'
         )
@@ -67,7 +67,7 @@ class TestCase extends PHPUnit_Framework_TestCase
         ) 
         VALUES 
         (
-        'CccLhn6aqp_Y-XYh-JzfXSCfxJNkKC8w', '', 'lianluo', '管理员', 'zacksleo@gmail.com', '$2y$13\$dbGxVyj3kglcJNUEsKyiu.5KQ9We3AqAFncYkdAS1iNRYf/RA37Ay', null, 1, 1502856859, 1502856859
+        'CccLhn6aqp_Y-XYh-JzfXSCfxJNkKC8w', '', 'lianluo', '管理员', 'zacksleo@gmail.com', '$2y$13\$dbGxVyj3kglcJNUEsKyiu.5KQ9We3AqAFncYkdAS1iNRYf/RA37Ay', null, 10, 1502856859, 1502856859
         );
 EOF;
         $userSql = <<<EOF
