@@ -74,12 +74,14 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return User|null
+     * @return Admin|null
      */
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = Admin::find()->canLogin()->username($this->username)->one();
+            /* @var $class Admin */
+            $class = Yii::$app->user->identityClass;
+            $this->_user = $class::find()->canLogin()->username($this->username)->one();
         }
 
         return $this->_user;

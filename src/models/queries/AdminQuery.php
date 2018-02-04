@@ -17,7 +17,7 @@ class AdminQuery extends ActiveQuery
     }
 
     /**
-     * @return UserQuery the query with condition for given email applied
+     * @return AdminQuery the query with condition for given email applied
      */
     public function email($email)
     {
@@ -25,7 +25,7 @@ class AdminQuery extends ActiveQuery
     }
 
     /**
-     * @return UserQuery the query with condition for given username applied
+     * @return AdminQuery the query with condition for given username applied
      */
     public function username($username)
     {
@@ -34,7 +34,7 @@ class AdminQuery extends ActiveQuery
 
     /**
      * @param string $token the password reset token
-     * @return UserQuery the query with conditions for valid password reset token applied
+     * @return AdminQuery the query with conditions for valid password reset token applied
      */
     public function passwordResetToken($token)
     {
@@ -50,7 +50,7 @@ class AdminQuery extends ActiveQuery
 
     /**
      * @param string $token the email confirmation token
-     * @return UserQuery the query with conditions for valid email confirmation token applied
+     * @return AdminQuery the query with conditions for valid email confirmation token applied
      */
     public function emailConfirmationToken($token)
     {
