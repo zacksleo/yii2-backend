@@ -138,7 +138,7 @@ EOF;
                     ]
                 ],
                 'user' => [
-                    'identityClass' => 'zacksleo\yii2\backend\tests\models\User',
+                    'identityClass' => 'zacksleo\yii2\backend\models\Admin',
                 ]
             ],
             'modules' => [
