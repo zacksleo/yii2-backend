@@ -19,7 +19,7 @@ class ChangePasswordFormTest extends TestCase
     {
         parent::setUp();
         $admin = Admin::findOne(1);
-        Yii::$app->user->login($admin);
+        Yii::$app->user->setIdentity($admin);
     }
 
     public function testVerifyOldPassword()
@@ -41,13 +41,6 @@ class ChangePasswordFormTest extends TestCase
         $form->verifyOldPassword('old_password', []);
         $form->validate();
         $this->assertFalse(empty($form->getErrors()));
-
-        Yii::$app->user->logout();
-        try {
-            $form = new ChangePasswordForm();
-        } catch (InvalidParamException $e) {
-            $this->assertTrue($e instanceof InvalidParamException);
-        }
     }
 
     public function testResetPassword()
