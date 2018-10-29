@@ -14,18 +14,9 @@ install:
 - travis_retry mysql -e 'CREATE DATABASE test;'
 - travis_retry composer self-update
 before_script:
-- composer config repositories.metronic vcs git@gitlab.com:zacksleo/metronic.git
-- composer require zacksleo/metronic --prefer-dist
 - composer install --prefer-dist --dev --no-interaction
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
 after_script:
 - wget https://scrutinizer-ci.com/ocular.phar
 - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-before_install:
-- mkdir -p ~/.ssh
-- openssl aes-256-cbc -K $encrypted_7b392fd00c3c_key -iv $encrypted_7b392fd00c3c_iv -in ./tests/.ssh/id_rsa.enc -out ~/.ssh/id_rsa -d  
-- eval $(ssh-agent -s)
-- chmod 0600 ~/.ssh/id_rsa
-- ssh-add ~/.ssh/id_rsa
-- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
