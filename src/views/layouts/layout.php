@@ -156,7 +156,8 @@ $this->registerCss($css);
                 'class' => 'breadcrumb'
             ],
             'homeLink' => [
-                'label' => '仪表盘',
+                'label' => '<i class="fa fa-dashboard"></i>仪表盘',
+                'encode' => false,
                 'url' => Yii::$app->homeUrl
             ],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
