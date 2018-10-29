@@ -20,6 +20,7 @@ class AdminLteAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
+        'zacksleo\yii2\backend\assets\FontAwesomeAsset'
     ];
     /**
      * @var string|bool Choose skin color, eg. `'skin-blue'` or set `false` to disable skin loading
