@@ -81,6 +81,6 @@ $this->context->layout = 'login4';
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
-<div class="copyright"> <?php echo Yii::t('app', 'copyright') ?></div>
+<div class="copyright"> <?php echo Module::t('backend', 'copyright') ?></div>
 <!-- END COPYRIGHT -->
 <!-- END CORE PLUGINS -->

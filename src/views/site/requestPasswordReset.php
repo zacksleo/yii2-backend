@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
-<div class="copyright"> <?php echo Yii::t('app', 'copyright') ?></div>
+<div class="copyright"> <?php echo Module::t('backend', 'copyright') ?></div>
 <!-- END COPYRIGHT -->
 <!--[if lt IE 9]>
 <script src="../assets/global/plugins/ie8.fix.min.js"></script>

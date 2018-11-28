@@ -11,7 +11,7 @@ $this->title = Module::t('backend', '更新管理员: ', [
     ]) . $model->username;
 $this->params['breadcrumbs'][] = ['label' => Module::t('backend', 'Admins'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->username, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Module::t('backend', 'Update');
 ?>
 <div class="admin-update">
     <?= $this->render('_form', [

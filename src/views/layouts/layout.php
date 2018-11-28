@@ -177,7 +177,7 @@ $this->registerCss($css);
         <div class="pull-right hidden-xs">
         <b>Version</b> <?= getenv('TAG'); ?>
         </div>
-        <strong><?php echo Yii::t('app', 'copyright') ?></strong>
+        <strong>copyright &copy; <?= Yii::$app->name;?></strong>
     </footer>
 </div>
 <?php $this->endBody() ?>
