@@ -27,7 +27,7 @@ $css = <<<CSS
 .sidebar-menu>li.bg-success>a{background-color: rgb(0, 166, 90) !important; color: rgb(255, 255, 255) !important;}
 CSS;
 $this->registerCss($css);
-$avatar = Yii::$app->user->isGuest ? '/images/avatar/png' : $avatar;
+$avatar = Yii::$app->user->isGuest ? '/images/avatar.png' : Yii::$app->user->identity->getImageUrl();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
