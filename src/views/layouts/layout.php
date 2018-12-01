@@ -27,6 +27,7 @@ $css = <<<CSS
 .sidebar-menu>li.bg-success>a{background-color: rgb(0, 166, 90) !important; color: rgb(255, 255, 255) !important;}
 CSS;
 $this->registerCss($css);
+$avatar = Yii::$app->user->isGuest ? '/images/avatar/png' : $avatar;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -62,13 +63,13 @@ $this->registerCss($css);
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <img src="<?= Yii::$app->user->identity->getImageUrl(); ?>" class="user-image" alt="avatar">
+              <img src="<?= $avatar; ?>" class="user-image" alt="avatar">
               <span class="hidden-xs"><?= Yii::$app->user->identity->username; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?= Yii::$app->user->identity->getImageUrl(); ?>" class="img-circle" alt="User Image">
+                <img src="<?= $avatar; ?>" class="img-circle" alt="User Image">
                 <p>
                   <?= Yii::$app->user->identity->username; ?> - <?= $role; ?>
                   <small>注册于 <?= date('Y-m-d', Yii::$app->user->identity->created_at) ?></small>
@@ -112,7 +113,7 @@ $this->registerCss($css);
     <section class="sidebar" style="height: auto;">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?= Yii::$app->user->identity->getImageUrl(); ?>" class="img-circle" alt="avatar">
+          <img src="<?= $avatar; ?>" class="img-circle" alt="avatar">
         </div>
         <div class="pull-left info">
           <p><?= Yii::$app->user->identity->username; ?></p>
@@ -150,18 +151,18 @@ $this->registerCss($css);
    <section class="content-header">
       <h1><?= $this->title; ?></h1>
       <?= Breadcrumbs::widget([
-            'activeItemTemplate' => '<li>{link}</li>',
-            'itemTemplate' => '<li>{link}</li>',
-            'options' => [
-                'class' => 'breadcrumb'
-            ],
-            'homeLink' => [
-                'label' => '<i class="fa fa-dashboard"></i>仪表盘',
-                'encode' => false,
-                'url' => Yii::$app->homeUrl
-            ],
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        'activeItemTemplate' => '<li>{link}</li>',
+        'itemTemplate' => '<li>{link}</li>',
+        'options' => [
+          'class' => 'breadcrumb'
+        ],
+        'homeLink' => [
+          'label' => '<i class="fa fa-dashboard"></i>仪表盘',
+          'encode' => false,
+          'url' => Yii::$app->homeUrl
+        ],
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+      ]) ?>
     </section>
     <section class="content">
         <?= Alert::widget() ?>
@@ -177,7 +178,7 @@ $this->registerCss($css);
         <div class="pull-right hidden-xs">
         <b>Version</b> <?= getenv('TAG'); ?>
         </div>
-        <strong>copyright &copy; <?= Yii::$app->name;?></strong>
+        <strong>copyright &copy; <?= Yii::$app->name; ?></strong>
     </footer>
 </div>
 <?php $this->endBody() ?>
